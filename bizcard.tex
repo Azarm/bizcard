@@ -1,0 +1,74 @@
+%%
+% R AZARM
+%
+% Creative Commons License : CC-BY-NC-SA
+%%
+
+\documentclass[a4paper,10pt]{letter}
+
+\usepackage[zw32010,crossmark]{ticket}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fontspec,xltxtra,xunicode}
+
+% Symbol Definitions
+
+\newfontfamily{\FA}{FontAwesome}
+
+\def\faGithub{\symbol{"F09B}}
+\def\faTwitter{\symbol{"F099}}
+\def\faEnvelopeO{\symbol{"F003}}
+\def\faPhone{\symbol{"F095}}
+
+\def\twitter{{\FA \faTwitter}}
+\def\github{{\FA \faGithub}}
+\def\email{{\FA \faEnvelopeO}}
+\def\mobile{{\FA \faPhone}}
+
+% Color Definitions
+
+\definecolor{grey}{HTML}{666666}  
+\definecolor{cardbg}{HTML}{f0efef}
+
+\pagecolor{cardbg}
+
+\renewcommand{\ticketdefault}{%
+}
+
+\newcommand{\vcardfront}[6]{\ticket{%
+    
+    \put(2,30){\fontspec{Helvetica Neue Light}\fontsize{20pt}{14pt}\selectfont #1}
+    \put(2,23){\fontspec{Helvetica Neue Light}\fontsize{20pt}{14pt}\selectfont \textbf{#2}}
+    \put(2,18){\fontspec{Helvetica Neue Light} #3}
+
+    \put(35, 16){\color{grey}\rule{1mm}{20mm}}
+
+
+    \put(40,30){ \fontspec{Helvetica Neue Light} \mobile\ #4}
+    \put(40,25){ \fontspec{Helvetica Neue Light} \email\ #5}
+    \put(40,20){ \fontspec{Helvetica Neue Light} \github\ #6}
+ }}
+
+
+ 
+\newcounter{numcards}
+
+\begin{document}
+\sffamily
+
+% Front
+\whiledo{\thenumcards<10}{%
+  \stepcounter{numcards}%
+  \vcardfront{Prénom}{NOM}{Poste/Profession}{+33 6 xx xx xx}{yourmail@your-provider.xxx}{devhub2017}
+  }
+
+\setcounter{numcards}{0}
+
+% Back
+\whiledo{\thenumcards<10}{%
+  \stepcounter{numcards}%
+  \ticket{}
+  }
+ 
+\end{document}

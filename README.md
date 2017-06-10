@@ -1,2 +1,2 @@
 # bizcard
-The professional business card in XeLaTeX
+The professional business card in XeLaTeX.
